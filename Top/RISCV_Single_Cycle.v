@@ -81,7 +81,7 @@ module RISCV_Single_Cycle(clk,rst_n);
                             .ALUSrc(ALUSrc),
                             .MemWrite(MemWrite),
                             .ResultSrc(ResultSrc),
-                            .Branch(),
+                            //.Branch(),
                             .funct3(RD_Instr[14:12]),
                              .funct7(RD_Instr[31:25]),
                             .ALUControl(ALUControl_Top)
