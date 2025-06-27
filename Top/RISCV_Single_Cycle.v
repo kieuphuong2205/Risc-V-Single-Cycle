@@ -33,7 +33,7 @@ module RISCV_Single_Cycle(clk,rst_n);
                     .c(PCPlus4)
     );
     
-    Instruction_Memory Instruction_Memory(
+    Instruction_Memory IMEM_inst (
                             .rst(rst),
                             .A(PC_Top),
                             .RD(RD_Instr)
