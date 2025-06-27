@@ -18,7 +18,7 @@ module RISCV_Single_Cycle(clk,rst_n);
     wire [31:0] PC_Top,RD_Instr,RD1_Top,Imm_Ext_Top,ALUResult,ReadData,PCPlus4,RD2_Top,SrcB,Result;
     wire RegWrite,MemWrite,ALUSrc,ResultSrc;
     wire [1:0]ImmSrc;
-    wire [2:0]ALUControl_Top;
+    wire [3:0]ALUControl_Top;
  
     PC PC(
         .clk(clk),
