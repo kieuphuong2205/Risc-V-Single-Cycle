@@ -2,12 +2,13 @@
 module Instruction_Memory(
 			  input rst,
 			  input [31:0]  A,
-			  output [31:0] RD
+			output [31:0] RD,
+			//output [31:0] mem_out
 			  );
    
    reg [31:0] mem [1023:0];
   
-  assign RD = (~rst) ? {32{1'b0}} : mem[A[31:2]];
+	assign RD = (rst==0) ? {32{1'b0}} : mem[A[31:2]];
   
   
 initial begin  
