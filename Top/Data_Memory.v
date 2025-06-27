@@ -6,10 +6,11 @@ module Data_Memory(
 		   input wire  [31:0]  A, WD,
 		   output wire [31:0]  RD
 		   );
+	reg [31:0] memory [0:1023];
 
-   reg [31:0] 	 RAM[63:0];
+   	reg [31:0] 	 RAM[63:0];
 
-   assign RD = RAM[A[31:2]]; // word aligned
+   	assign RD = RAM[A[31:2]]; // word aligned
 
 //only for testing, wont synthesize
 //addi s0, zero, 0
