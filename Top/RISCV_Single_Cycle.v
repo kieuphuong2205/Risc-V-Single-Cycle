@@ -52,8 +52,10 @@ module RISCV_Single_Cycle(clk,rst_n);
     );
 
     Extend Sign_Extend(
-                        .Instr(RD_Instr),
-                        .ImmSrc(ImmSrc[0]),
+                        //.Instr(RD_Instr),
+                        .Instr(RD_Instr[24:0]),
+                        //.ImmSrc(ImmSrc[0]),
+                        .ImmSrc(ImmSrc),    
                         .ImmExt(Imm_Ext_Top)
     );
 
