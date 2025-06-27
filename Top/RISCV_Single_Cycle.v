@@ -98,7 +98,7 @@ module RISCV_Single_Cycle(clk,rst_n, Instruction_out_top);
     );
 
     Mux Mux_DataMemory_to_Register(
-                            .a(ALUResult[0]),
+                            .a(ALUResult),
                             .b(ReadData),
                             .s(ResultSrc[0]),
                             .c(Result)
