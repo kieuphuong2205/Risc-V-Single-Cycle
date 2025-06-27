@@ -11,9 +11,9 @@
 ///`include "PC_Target.v"
 //`include "Mux.v"
 
-module RISCV_Single_Cycle(clk,rst);
+module RISCV_Single_Cycle(clk,rst_n);
 
-    input clk,rst;
+    input clk,rst_n;
 
     wire [31:0] PC_Top,RD_Instr,RD1_Top,Imm_Ext_Top,ALUResult,ReadData,PCPlus4,RD2_Top,SrcB,Result;
     wire RegWrite,MemWrite,ALUSrc,ResultSrc;
