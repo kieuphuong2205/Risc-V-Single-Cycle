@@ -87,7 +87,7 @@ module RISCV_Single_Cycle(clk,rst_n);
                             .ALUControl(ALUControl_Top)
     );
 
-    Data_Memory Data_Memory(
+    Data_Memory DMEM_inst(
                         .clk(clk),
                         .WE(MemWrite),
                         .WD(RD2_Top),
