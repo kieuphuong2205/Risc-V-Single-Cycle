@@ -11,7 +11,7 @@
 ///`include "PC_Target.v"
 //`include "Mux.v"
 
-module Single_Cycle_Top(clk,rst);
+module RISCV_Single_Cycle(clk,rst);
 
     input clk,rst;
 
