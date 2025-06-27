@@ -11,7 +11,7 @@
 ///`include "PC_Target.v"
 //`include "Mux.v"
 
-module AA(clk,rst);
+module Single_Cycle_Top(clk,rst);
 
     input clk,rst;
 
