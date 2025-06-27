@@ -2,7 +2,7 @@
 module Instruction_Memory(
 			  input rst,
 			  input [31:0]  A,
-			output [31:0] RD,
+			output [31:0] RD
 			//output [31:0] mem_out
 			  );
    
