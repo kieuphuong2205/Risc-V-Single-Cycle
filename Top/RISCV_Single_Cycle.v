@@ -11,15 +11,17 @@
 ///`include "PC_Target.v"
 //`include "Mux.v"
 
-module RISCV_Single_Cycle(clk,rst_n);
+module RISCV_Single_Cycle(clk,rst_n, Instruction_out_top);
 
     input clk,rst_n;
-
+    output [31:0] Instruction_out_top;
     wire [31:0] PC_Top,RD_Instr,RD1_Top,Imm_Ext_Top,ALUResult,ReadData,PCPlus4,RD2_Top,SrcB,Result;
     wire RegWrite,MemWrite,ALUSrc;
     wire [1:0]ImmSrc,ResultSrc;
     wire [3:0]ALUControl_Top;
- 
+    
+    assign Instruction_out_top = RD_Instr;
+    
     PC PC(
         .clk(clk),
         .reset(rst),
