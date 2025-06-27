@@ -23,7 +23,7 @@ initial begin
    RAM[1]  = 32'h00000002; 
    RAM[2]  = 32'h00000003; 
    
-   RAM[63] = 32'h000000063;  // Should be replaced by FACE
+   RAM[63] = 32'h00000063;  // Should be replaced by FACE
 end
 
 
