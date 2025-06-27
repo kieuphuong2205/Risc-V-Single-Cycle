@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module Control_unit(
+module Control_Unit(
 		    input wire [6:0]  Op,
 		    input wire [2:0]  funct3,
 		    input wire	      funct7, Zero, // function 7 is the 5th bit
