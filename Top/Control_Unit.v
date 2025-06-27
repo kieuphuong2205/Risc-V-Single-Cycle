@@ -3,8 +3,9 @@
 module Control_Unit(
 		    input wire [6:0]  Op,
 		    input wire [2:0]  funct3,
-		    input wire	      funct7, Zero, // function 7 is the 5th bit
-
+		    //input wire	      funct7, Zero, // function 7 is the 5th bit
+		    input wire [6:0] funct7,
+	            input wire Zero, 
 		    output wire [1:0] ResultSrc,
 		    output wire	      MemWrite, PCSrc, ALUSrc, RegWrite,Jump,
 		    output wire [1:0] ImmSrc,
