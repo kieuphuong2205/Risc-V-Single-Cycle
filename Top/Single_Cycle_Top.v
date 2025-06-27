@@ -69,7 +69,7 @@ module AA(clk,rst);
             .B(SrcB),
             .Result(ALUResult),
             .ALUControl(ALUControl_Top),
-            .Zero(),
+            .Zero()
     );
 
     Control_Unit Control_Unit_Top(
