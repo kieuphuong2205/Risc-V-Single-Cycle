@@ -4,7 +4,9 @@
 module RISCV_Single_Cycle(
     input clk,
     input rst_n,
-    output wire [31:0] Instruction_out_top
+    output wire [31:0] Instruction_out_top,
+    output wire [31:0] PC_out_top
+
 );
     wire [31:0] pc_current, pc_next, pc_plus_4;
     wire [31:0] instruction, immediate;
@@ -21,6 +23,7 @@ module RISCV_Single_Cycle(
     assign pc_next = (Branch && branch_taken) ? (pc_current + immediate) :
                      (Jump) ? alu_result :
                               pc_plus_4;
+    assign PC_out_top = pc_current;
     
     Program_Counter pc_reg(clk, rst_n, pc_next, pc_current);
     
