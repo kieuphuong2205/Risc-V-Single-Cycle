@@ -1,4 +1,3 @@
-// --- File: ALU.v ---
 `include "defines.v"
 
 module ALU(
