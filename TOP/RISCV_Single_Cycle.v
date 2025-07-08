@@ -4,7 +4,9 @@
 module RISCV_Single_Cycle(
     input clk,
     input rst_n,
-    output wire [31:0] Instruction_out_top
+    output wire [31:0] Instruction_out_top,
+    output wire [31:0] PC_out_top,                       
+    output wire [31:0] registers_out [0:31]
 );
     wire [31:0] pc_current, pc_next, pc_plus_4;
     wire [31:0] instruction, immediate;
@@ -27,6 +29,7 @@ module RISCV_Single_Cycle(
     IMEM IMEM_inst(pc_current, instruction);
     
     assign Instruction_out_top = instruction;
+    assign PC_out_top = pc_current;  
     
     assign opcode   = instruction[6:0];
     assign funct3   = instruction[14:12];
@@ -36,8 +39,23 @@ module RISCV_Single_Cycle(
     assign rd_addr  = instruction[11:7];
     
     control_unit ctrl(opcode, funct3, funct7, RegWEn, ALUSrc, MemRW, MemToReg, Branch, BrUn, Jump, alu_control);
+
+    wire [31:0] rf_registers [0:31];
+    RegisterFile reg_file(
+        .clk(clk),
+        .RegWEn(RegWEn),
+        .rs1_addr(rs1_addr),
+        .rs2_addr(rs2_addr),
+        .rd_addr(rd_addr),
+        .rd_data(write_back_data),
+        .rs1_data(rs1_data),
+        .rs2_data(rs2_data),
+        .registers(rf_registers)                            
+    );
+
+    assign registers_out = rf_registers; 
     
-    RegisterFile reg_file(clk, RegWEn, rs1_addr, rs2_addr, rd_addr, write_back_data, rs1_data, rs2_data);
+    //RegisterFile reg_file(clk, RegWEn, rs1_addr, rs2_addr, rd_addr, write_back_data, rs1_data, rs2_data);
     
     Imm_Gen imm_gen(instruction, immediate);
     
