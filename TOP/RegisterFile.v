@@ -7,7 +7,8 @@ module RegisterFile(
     input  [4:0]  rd_addr,
     input  [31:0] rd_data,
     output [31:0] rs1_data,
-    output [31:0] rs2_data
+    output [31:0] rs2_data,
+    output [31:0] registers_out [31:0]
 );
     reg [31:0] registers [31:0];
 
@@ -19,4 +20,12 @@ module RegisterFile(
             registers[rd_addr] <= rd_data;
         end
     end
+
+    genvar i;
+    generate
+        for (i = 0; i < 32; i = i + 1) begin : reg_out_loop
+            assign registers_out[i] = registers[i];
+        end
+    endgenerate
+    
 endmodule
