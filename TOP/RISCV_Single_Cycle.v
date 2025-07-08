@@ -41,7 +41,7 @@ module RISCV_Single_Cycle(
     control_unit ctrl(opcode, funct3, funct7, RegWEn, ALUSrc, MemRW, MemToReg, Branch, BrUn, Jump, alu_control);
 
     wire [31:0] rf_registers [0:31];
-    RegisterFile reg_file(
+    RegisterFile Reg_inst(
         .clk(clk),
         .RegWEn(RegWEn),
         .rs1_addr(rs1_addr),
