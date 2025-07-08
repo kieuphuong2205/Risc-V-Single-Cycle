@@ -7,8 +7,8 @@ module RegisterFile(
     input  [4:0]  rd_addr,
     input  [31:0] rd_data,
     output [31:0] rs1_data,
-    output [31:0] rs2_data
-    //output [31:0] registers_out [31:0]
+    output [31:0] rs2_data,
+    output [31:0] registers_out [31:0]
 );
     //reg [31:0] registers [31:0];
     (* keep *) reg [31:0] registers [31:0];
