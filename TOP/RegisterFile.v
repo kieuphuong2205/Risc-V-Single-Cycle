@@ -13,6 +13,12 @@ module RegisterFile(
     //reg [31:0] registers [31:0];
     (* keep *) reg [31:0] registers [31:0];
 
+    initial begin
+        integer i;
+        for (i = 0; i < 32; i = i + 1)
+            registers[i] = 32'd0;
+    end
+
     assign rs1_data = (rs1_addr == 5'b0) ? 32'd0 : registers[rs1_addr];
     assign rs2_data = (rs2_addr == 5'b0) ? 32'd0 : registers[rs2_addr];
 
