@@ -49,8 +49,8 @@ module RISCV_Single_Cycle(
         .rd_addr(rd_addr),
         .rd_data(write_back_data),
         .rs1_data(rs1_data),
-        .rs2_data(rs2_data),
-        .registers(rf_registers)                            
+        .rs2_data(rs2_data)
+        //.registers(rf_registers)                            
     );
 
     assign registers_out = rf_registers; 
