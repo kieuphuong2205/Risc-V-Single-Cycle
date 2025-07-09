@@ -1,4 +1,3 @@
-// --- File: control_unit.v ---
 `include "defines.v"
 
 module control_unit(
