@@ -1,4 +1,3 @@
-// --- File: RegisterFile.v ---
 module RegisterFile(
     input         clk,
     input         RegWEn,
