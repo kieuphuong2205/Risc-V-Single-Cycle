@@ -1,4 +1,3 @@
-// --- File: main_decoder.v ---
 `include "defines.v"
 
 module main_decoder(
