@@ -1,4 +1,3 @@
-// --- File: RISCV_Single_Cycle.v ---
 `include "defines.v"
 
 module RISCV_Single_Cycle(
