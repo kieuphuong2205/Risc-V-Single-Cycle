@@ -1,4 +1,3 @@
-// --- File: ALU_decoder.v ---
 `include "defines.v"
 
 module ALU_decoder(
@@ -9,7 +8,7 @@ module ALU_decoder(
 );
     always @(*) begin
         case (ALUOp)
-            2'b00: // R-Type
+            2'b00: // R-Type lệnh (ADD, SUB, SLL, SLT, ...), dùng cả funct3 và funct7
                 case (funct3)
                     `FUNCT3_ADD_SUB: alu_control = (funct7 == `FUNCT7_SUB) ? `ALU_SUB : `ALU_ADD;
                     `FUNCT3_SLL:     alu_control = `ALU_SLL;
@@ -21,9 +20,9 @@ module ALU_decoder(
                     `FUNCT3_AND:     alu_control = `ALU_AND;
                     default:         alu_control = 4'bxxxx;
                 endcase
-            2'b01: // For lw, sw, auipc, jal, jalr
+            2'b01:  // Dành cho các lệnh cần cộng địa chỉ: lw, sw, auipc, jal, jalr → dùng ALU để cộng
                 alu_control = `ALU_ADD;
-            2'b10: // I-Type Arithmetic
+            2'b10: // I-Type Arithmetic (ADDI, SLTI, ANDI, SLLI, SRLI, SRAI,...)
                 case (funct3)
                     `FUNCT3_ADDI:       alu_control = `ALU_ADD;
                     `FUNCT3_SLTI:      alu_control = `ALU_SLT;
@@ -35,9 +34,9 @@ module ALU_decoder(
                     `FUNCT3_SRLI_SRAI: alu_control = (funct7 == `FUNCT7_SRA) ? `ALU_SRA : `ALU_SRL;
                     default:           alu_control = 4'bxxxx;
                 endcase
-            2'b11: // Branch
+            2'b11: // Dành cho lệnh nhánh (branch) – không cần điều khiển ALU cụ thể ở đây
                 alu_control = 4'bxxxx;
-            default: alu_control = 4'bxxxx;
+            default: alu_control = 4'bxxxx;    // Trường hợp ALUOp không hợp lệ
         endcase
     end
 endmodule
